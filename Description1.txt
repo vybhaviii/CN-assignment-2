@@ -1,0 +1,27 @@
+QUESTION:  A04. Implement GBN protocol. Write a sender and receiver program using UDP socket programming with a window size of 4, and using 10 sequence numbers i.e. 0, 1, ..., 9. Sender should send N (Configurable e.g. 12) packets and uses a timeout value of 2 seconds. Receiver program would run using socket number 20000+x, where x corresponds to last 2 three digits of your USN number. The message would have msg header value as its sequence number and content as "message number N" + md5sum checksum value, where N corresponds to sequence number. You can use md5sum checksum library to compute checksum. Consider the case. Sender should exit when it receives ack for the last packet i.e. Nth packet. Implement a lossy channel as sender side corrupting every Ith ack packet (e.g. I=4). The packet corruption should be implemented as replacing the first word of message as "Corrupt". Whenever sender and receiver receives a message, these are displayed on terminal.
+Thus invocation of sender and receiver program would be as follows
+Receiver program would run for ever.
+./sender <receiver IP> <receiver port> <W> <S> <N> <T> <I>
+  W - window size
+  S - Max sequence number
+  N - number of messages to send
+  T - timeout value (in seconds) waiting for ack
+  I - every Ith  ack from receiver side is lost
+
+./receiver  <receiver port> <S>
+
+
+SOLUTION: We learnt UDP socket programming and understood implementing socket programming in java. We implemented 2 programs ,one for sender and other for receiver.
+          the IP address we used is 127.0.0.1 and port address as 20084 where last 3 digits of port number corresponds to last 3 numbers in the 
+          usn 1ks17cs084. We have 2 implementations for the codes,one for packet and ack uncorrupted and received by receiver and other being corrupted.
+          We have also tried implementing time-out concept
+          
+ EXECUTION: Open 2 teminals simultaneously . In one terrminal complie sender program as javac Sender.java and on the other terminal compile Receiver code as 
+            javac Receiver.java .On the first terminal execute by java Sender and on the other as java Receiver.
+            then enter the data to be sent.
+            
+ DIFFICULTIES FACED: We tried hard to implement command line arguments for ip address and other parameters but could not implement it successfully.
+                     We spent a lot of time on learning udp socket programming and implementing it but glad that it we could learn it.
+                     
+                     
+          
