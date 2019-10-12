@@ -14,7 +14,7 @@ Receiver program would run for ever.
 SOLUTION: We learnt UDP socket programming and understood implementing socket programming in java. We implemented 2 programs ,one for sender and other for receiver.
           the IP address we used is 127.0.0.1 and port address as 20084 where last 3 digits of port number corresponds to last 3 numbers in the 
           usn 1ks17cs084. We have 2 implementations for the codes,one for packet and ack uncorrupted and received by receiver and other being corrupted.
-          We have also tried implementing time-out concept
+          We have also tried implementing time-out concept. We reffered you tube for learning and implementing codes.The reference is as folllows https://www.youtube.com/channel/UCgjyQwmL0CdL494PjlGYfQg
           
  EXECUTION: Open 2 teminals simultaneously . In one terrminal complie sender program as javac Sender.java and on the other terminal compile Receiver code as 
             javac Receiver.java .On the first terminal execute by java Sender and on the other as java Receiver.
