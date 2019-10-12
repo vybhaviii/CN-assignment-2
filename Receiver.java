@@ -41,7 +41,7 @@ out.writeObject(String.valueOf(sequence));
 //i++;
 //}
 //else{
-//out.writeObject(String.valueOf((sequence+1)%2))
+//out.writeObject(String.valueOf((sequence+1)%2));
 //i=0;
 //}
 //}
