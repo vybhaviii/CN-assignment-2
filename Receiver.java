@@ -1,3 +1,4 @@
+
 import java.io.*;
 import java.net.*;
 
@@ -14,7 +15,7 @@ Receiver(){}
 public void run(){
 try{
 BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-reciever = new ServerSocket(20084,10);
+reciever = new ServerSocket(20084);
 System.out.println("waiting for connection...");
 connection=reciever.accept();
 sequence=0;
@@ -35,16 +36,16 @@ else
 {
 System.out.println("\n\nreceiver         >"+packet +"   duplicate data");
 }
-//if(i<3){  //all this commented part helps to send ack with wrong seq no.
+if(i<3){  
 Thread.sleep(2000);
 out.writeObject(String.valueOf(sequence));
-//i++;
-//}
-//else{
-//out.writeObject(String.valueOf((sequence+1)%2));
-//i=0;
-//}
-//}
+i++;
+}
+else{
+out.writeObject(String.valueOf((sequence+1)%2));
+i=0;
+}
+}
 catch(Exception e){}
 }
 while(!packet.equals("end"));
@@ -69,3 +70,4 @@ s.run();
 
 }
 }
+
